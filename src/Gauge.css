@@ -1,0 +1,20 @@
+.gauge { max-height: 200px; }
+
+.gauge-capacity {
+    fill: transparent;
+    stroke : #2A424E;
+    stroke-width: 10;
+}
+
+.gauge-utilized {
+    fill: transparent;
+    stroke: #64B6A8;
+    stroke-width: 10;
+    stroke-dasharray: 283;
+}
+
+.gauge-text {
+    text-anchor: middle;
+    font-size: 9px;
+    stroke: #B1C1CB;
+}
