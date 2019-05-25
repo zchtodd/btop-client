@@ -4,7 +4,7 @@ import "./App.css";
 import React from "react";
 
 import CPUGrid from "./CPUGrid.js";
-import SwapMeter from "./SwapMeter.js";
+import Meter from "./Meter.js";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -13,7 +13,7 @@ export default class App extends React.Component {
         this.state = {
             cpus: [],
             mem: {},
-            swp: {perc: 0},
+            swp: { perc: 0 },
             processes: [],
             uptime: 0
         };
@@ -61,8 +61,21 @@ export default class App extends React.Component {
                 <div>
                     <CPUGrid cpus={this.state.cpus} />
                 </div>
-                <div className="swap-meter-container ml-4 mt-4">
-                    <SwapMeter swp={this.state.swp} />
+                <div className="mem-meter-container ml-4 mt-4">
+                    <Meter
+                        label="mem"
+                        utilized={this.state.mem.used}
+                        capacity={this.state.mem.total}
+                        perc={this.state.mem.perc}
+                    />
+                </div>
+                <div className="swp-meter-container ml-4 mt-4">
+                    <Meter
+                        label="swp"
+                        utilized={this.state.swp.used}
+                        capacity={this.state.swp.total}
+                        perc={this.state.swp.perc}
+                    />
                 </div>
             </div>
         );

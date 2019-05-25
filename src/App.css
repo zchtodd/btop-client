@@ -3,6 +3,7 @@ body {
     color: #B1C1CB;
 }
 
-.swap-meter-container {
-    width: 60%;
+.mem-meter-container,
+.swp-meter-container {
+    width: 90%;
 }
