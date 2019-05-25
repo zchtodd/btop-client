@@ -61,17 +61,19 @@ export default class App extends React.Component {
                 <div>
                     <CPUGrid cpus={this.state.cpus} />
                 </div>
-                <div className="mem-meter-container ml-4 mt-4">
+                <div className="mx-auto w-75 mt-5">
                     <Meter
                         label="mem"
+                        className="standard"
                         utilized={this.state.mem.used}
                         capacity={this.state.mem.total}
                         perc={this.state.mem.perc}
                     />
                 </div>
-                <div className="swp-meter-container ml-4 mt-4">
+                <div className="mx-auto w-75 mt-3">
                     <Meter
                         label="swp"
+                        className="warning"
                         utilized={this.state.swp.used}
                         capacity={this.state.swp.total}
                         perc={this.state.swp.perc}

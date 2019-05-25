@@ -13,14 +13,20 @@ export default class Meter extends React.Component {
                         <div className="col-9">
                             <div className="meter-capacity">
                                 <div
-                                    className="meter-utilized"
+                                    className={
+                                        "meter-utilized " +
+                                        (this.props.className || "")
+                                    }
                                     style={{
                                         width: this.props.perc + "%"
                                     }}
                                 />
                             </div>
                         </div>
-                        <div className="col-2" style={{"text-align": "right"}}>
+                        <div
+                            className="col-2"
+                            style={{ "text-align": "right" }}
+                        >
                             <div className="meter-text">
                                 {this.props.utilized} / {this.props.capacity}
                             </div>

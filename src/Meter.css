@@ -1,3 +1,11 @@
+.standard { 
+    background-color: #69BEE6;
+}
+
+.warning { 
+    background-color: #EF8C38;
+}
+
 .meter-capacity {
     display: inline-block;
     background-color: #2A424E;
@@ -7,12 +15,11 @@
 
 .meter-utilized {
     display: inline-block;
-    background-color: #F40045;
     height: 100%;
 }
 
 .meter-text {
-    font-size: 18px;
+    font-size: 14px;
     width: 100%;
     white-space: nowrap;
     color: #B1C1CB;

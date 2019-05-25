@@ -6,7 +6,7 @@ export default class Gauge extends React.Component {
         return (
             <div>
                 <svg viewBox="0 0 100 100" className="gauge">
-                    <text x="0" y="50" className="gauge-text">
+                    <text x="4" y="50" className="gauge-text">
                         {this.props.cpu_num}
                     </text>
                     <circle

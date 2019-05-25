@@ -2,8 +2,3 @@ body {
     background-color: #16242A;
     color: #B1C1CB;
 }
-
-.mem-meter-container,
-.swp-meter-container {
-    width: 90%;
-}
