@@ -19,13 +19,24 @@ export default class ProcessList extends React.Component {
                 }
             },
             columnDefs: [
-                { headerName: "PID", field: "pid", maxWidth: 80 },
+                {
+                    headerName: "PID",
+                    field: "pid",
+                    filter: "agNumberColumnFilter",
+                    maxWidth: 80
+                },
                 { headerName: "User", field: "username", maxWidth: 100 },
-                { headerName: "NI", field: "nice", maxWidth: 60 },
+                {
+                    headerName: "NI",
+                    field: "nice",
+                    filter: "agNumberColumnFilter",
+                    maxWidth: 60
+                },
                 {
                     headerName: "RSS",
                     valueGetter: params => params.data.memory_info[0],
                     valueFormatter: params => memfmt(params.value),
+                    filter: "agNumberColumnFilter",
                     cellStyle: { textAlign: "right" },
                     maxWidth: 80
                 },
@@ -33,6 +44,7 @@ export default class ProcessList extends React.Component {
                     headerName: "VMS",
                     valueGetter: params => params.data.memory_info[1],
                     valueFormatter: params => memfmt(params.value),
+                    filter: "agNumberColumnFilter",
                     cellStyle: { textAlign: "right" },
                     maxWidth: 80
                 },
@@ -40,6 +52,7 @@ export default class ProcessList extends React.Component {
                     headerName: "SHR",
                     valueGetter: params => params.data.memory_info[2],
                     valueFormatter: params => memfmt(params.value),
+                    filter: "agNumberColumnFilter",
                     cellStyle: { textAlign: "right" },
                     maxWidth: 80
                 },
@@ -48,12 +61,14 @@ export default class ProcessList extends React.Component {
                     headerName: "CPU%",
                     field: "cpu_percent",
                     cellStyle: { textAlign: "right" },
+                    filter: "agNumberColumnFilter",
                     maxWidth: 110
                 },
                 {
                     headerName: "MEM%",
                     field: "memory_percent",
                     cellStyle: { textAlign: "right" },
+                    filter: "agNumberColumnFilter",
                     maxWidth: 110
                 },
                 { headerName: "Time+", field: "time", maxWidth: 80 },
