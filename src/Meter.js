@@ -1,6 +1,8 @@
 import React from "react";
 import "./Meter.css";
 
+import { memfmt } from "./Utility.js";
+
 export default class Meter extends React.Component {
     render() {
         return (
@@ -28,7 +30,8 @@ export default class Meter extends React.Component {
                             style={{ "text-align": "right" }}
                         >
                             <div className="meter-text">
-                                {this.props.utilized} / {this.props.capacity}
+                                {memfmt(this.props.utilized)} /{" "}
+                                {memfmt(this.props.capacity)}
                             </div>
                         </div>
                     </div>

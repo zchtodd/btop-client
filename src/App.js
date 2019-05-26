@@ -5,6 +5,7 @@ import React from "react";
 
 import CPUGrid from "./CPUGrid.js";
 import Meter from "./Meter.js";
+import ProcessList from "./ProcessList.js";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -12,10 +13,11 @@ export default class App extends React.Component {
 
         this.state = {
             cpus: [],
-            mem: {},
-            swp: { perc: 0 },
-            processes: [],
-            uptime: 0
+            mem: { used: 0, total: 0, perc: 0 },
+            swp: { used: 0, total: 0, perc: 0 },
+            add: [],
+            update: [],
+            remove: []
         };
     }
 
@@ -24,40 +26,20 @@ export default class App extends React.Component {
         ws.onmessage = event => {
             let data = JSON.parse(event.data);
 
-            let updated = data.updated.reduce((updated, proc) => {
-                updated[proc.pid] = proc;
-                return updated;
-            }, {});
-
-            let removed = data.removed.reduce((removed, proc) => {
-                removed[proc.pid] = proc;
-                return removed;
-            }, {});
-
-            let processes = this.state.processes.filter(
-                proc => !removed[proc.pid]
-            );
-
-            processes = processes.map(proc => {
-                return updated[proc.pid] ? updated[proc.pid] : proc;
-            });
-
-            if (!processes.length) {
-                processes = data.updated;
-            }
-
             this.setState({
                 cpus: data.cpu,
                 mem: data.mem,
                 swp: data.swp,
-                processes: processes
+                add: data.add,
+                update: data.update,
+                remove: data.remove
             });
         };
     }
 
     render() {
         return (
-            <div>
+            <div id="app-container">
                 <div>
                     <CPUGrid cpus={this.state.cpus} />
                 </div>
@@ -77,6 +59,13 @@ export default class App extends React.Component {
                         utilized={this.state.swp.used}
                         capacity={this.state.swp.total}
                         perc={this.state.swp.perc}
+                    />
+                </div>
+                <div id="proclist-container" className="mt-4">
+                    <ProcessList
+                        add={this.state.add}
+                        update={this.state.update}
+                        remove={this.state.remove}
                     />
                 </div>
             </div>
