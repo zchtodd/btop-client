@@ -60,6 +60,7 @@ export default class ProcessList extends React.Component {
                 {
                     headerName: "CPU%",
                     field: "cpu_percent",
+                    valueFormatter: params => params.value.toFixed(2),
                     cellStyle: { textAlign: "right" },
                     filter: "agNumberColumnFilter",
                     maxWidth: 110
@@ -67,6 +68,7 @@ export default class ProcessList extends React.Component {
                 {
                     headerName: "MEM%",
                     field: "memory_percent",
+                    valueFormatter: params => params.value.toFixed(2),
                     cellStyle: { textAlign: "right" },
                     filter: "agNumberColumnFilter",
                     maxWidth: 110
