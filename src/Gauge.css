@@ -2,19 +2,20 @@
 
 .gauge-capacity {
     fill: transparent;
-    stroke : #2A424E;
+    stroke : #2D2D2D;
     stroke-width: 10;
 }
 
 .gauge-utilized {
     fill: transparent;
-    stroke: #64B6A8;
+    opacity: 0.5;
+    stroke: #5595BC;
     stroke-width: 10;
     stroke-dasharray: 283;
 }
 
 .gauge-text {
     text-anchor: middle;
-    font-size: 9px;
+    font-size: 11px;
     stroke: #B1C1CB;
 }

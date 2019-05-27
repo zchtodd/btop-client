@@ -1,14 +1,16 @@
 .standard { 
-    background-color: #69BEE6;
+    background-color: #5595BC;
+    opacity: 0.5;
 }
 
 .warning { 
-    background-color: #EF8C38;
+    background-color: #D13B29;
+    opacity: 0.5;
 }
 
 .meter-capacity {
     display: inline-block;
-    background-color: #2A424E;
+    background-color: #2D2D2D;
     width: 100%;
     height: 100%;
 }
